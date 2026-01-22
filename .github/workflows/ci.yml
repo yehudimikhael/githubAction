@@ -17,11 +17,14 @@ jobs:
     name: "Build"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: "Checkout"
+        uses: actions/checkout@v4
+      - name: "Setup Node.js"
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-      - run: |
+      - name: "Print Node.js version"
+        run: |
           echo "Node.js version: ${{ env.NODE_VERSION }}"
           ls -la .github/workflows
 
